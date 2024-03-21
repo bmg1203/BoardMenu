@@ -23,19 +23,19 @@
 		background-color: black;
 		color: white;
 		font-weight: bold;
-		text-align: right;
 		/*scss 문법을 이용한 표현(script로 설치 필요)*/
 		td{
 			border-color: #dbb1ff;
 		}
 		
 	}
-	<!-- tr 안에 td를 사용하려면 추가 적인 설정이 필요 아니면 그냥 원래 css 처럼 아래와 같이 사용 -->
+	/* tr 안에 td를 사용하려면 추가 적인 설정이 필요 아니면 그냥 원래 css 처럼 아래와 같이 사용 */
 	/* tr:first-child > td {border-color: white}  */
 	
+	/*적용 안됨*/
 	tr:nth-child(2) td {
-		text-align: right;
-	}
+     text-align: right;
+  }
 </style>
 </head>
 <body>
