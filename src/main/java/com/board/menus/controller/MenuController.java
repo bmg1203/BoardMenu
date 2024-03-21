@@ -52,6 +52,7 @@ public class MenuController {
 		return "menus/list"; // menus/list.jsp
 	}*/
 	
+	//-------------------------------------------------------------------------
 	// 메뉴 목록 조회
 	// /Menus/List
 	@RequestMapping("/List") // /Menus/List
@@ -96,5 +97,23 @@ public class MenuController {
 		html += "location.href='/Menus/List';</script>";
 		
 		return html;
+	}
+	
+	
+	//-------------------------------------------------------------------------
+	// 새 메뉴 추가 2 관련
+	@RequestMapping("/WriteForm2")
+	public String writeForm2() {
+		return "menus/write2"; // /WEB-INF/views/ + menus/write + .jsp
+	}
+	
+	@RequestMapping("/Write2")
+	public String write2(MenuVo menuVo) {	
+		//저장
+		//Write2는 메뉴이름만 받고 나머진 자동 생성 /Menus/Write?menu_name=JSP
+		menuMapper.insertMenuByName(menuVo);
+		
+		//조회로 이동
+		return "redirect:/Menus/List"; // menus/list.jsp
 	}
 }
