@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.menus.domain.MenuVo;
 import com.board.menus.mapper.MenuMapper;
@@ -68,6 +69,7 @@ public class MenuController {
 	
 	// 메뉴 삭제
 	// /Menus/Delete
+	/*
 	@RequestMapping("/Delete")
 	public String Delete(MenuVo menuVo) {
 		//특정 메뉴를 삭제
@@ -79,5 +81,20 @@ public class MenuController {
 		
 		//이동할 파일, menuList 조회 중복 코드 제거
 		return "redirect:/Menus/List";
+	}
+	*/
+	
+	// 메뉴 삭제 방법 2
+	// /Menus/Delete?menu_id = menu_id
+	@RequestMapping("/Delete")
+	@ResponseBody //이걸 하면 return에 들어있는 alert이 스크립트로 실행됨
+	public String delete(MenuVo menuVo) {
+		menuMapper.deleteMenu(menuVo);
+		
+		//script를 이용해 삭제 알림 멘트와 location.href를 통해 list.jsp의 menuList 또한 출력해줌
+		String html = "<script>alert('삭제 되었습니다.');";
+		html += "location.href='/Menus/List';</script>";
+		
+		return html;
 	}
 }
