@@ -65,7 +65,7 @@
 					<td>${menu.menu_name}</td>
 					<td>${menu.menu_seq}</td>
 					<td><a href="/Menus/Delete?menu_id=${menu.menu_id}">삭제</a></td> <!-- href에 #은 페이지 새로고침 -->
-					<td><a href="#">수정</a></td>
+					<td><a href="/Menus/UpdateForm?menu_id=${menu.menu_id}">수정</a></td>
 				</tr>
 			</c:forEach>
 		</table>

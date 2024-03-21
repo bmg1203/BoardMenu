@@ -68,6 +68,31 @@ public class MenuController {
 		return "menus/list";
 	}
 	
+	//----------------------------------------------------------------
+	// 메뉴 수정
+	// /Menus/UpdateForm?menu_id=${menu_id}
+	@RequestMapping("/UpdateForm")
+	public String updateForm(MenuVo menuVo, Model model) {
+		//수정할 데이터 조회
+		//menuMapper.selectMenu(menuVo);
+		
+		//조회한 내용을 모델에 담기
+		
+		return "/menus/update";
+	}
+	
+	// /Menus/Update
+	@RequestMapping("/Update")
+	public String update(MenuVo menuVo) {
+		//수정
+		//menuMapper.updateMenu(menuVo);
+		
+		//수정후 조회
+		return "redirect:/Menus/List";
+	}
+	
+	
+	//----------------------------------------------------------------
 	// 메뉴 삭제
 	// /Menus/Delete
 	/*
