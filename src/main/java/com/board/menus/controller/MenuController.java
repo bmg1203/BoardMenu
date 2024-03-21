@@ -34,7 +34,12 @@ public class MenuController {
 		// /Menus/Write?menu_id=MENU02&menu_name=JSP&menu_seq=2
 		menuMapper.insertMenu(menuVo);
 		
-		return "menus/list"; // menus/list.jsp
+		//menuList 다시 조회(리스트가 빈값이 되지 않도록)
+//		List<MenuVo> menuList = menuMapper.getMenuList();
+//		model.addAttribute("menuList", menuList);
+		
+		//menuList 를 조회하는 중복 코드를 없애기 위해서 아래와 같이 redirect:Menus/list로 아래의 메뉴 목록 조회 메소드 실행
+		return "redirect:/Menus/List"; // menus/list.jsp
 	}
 	//오류 난 코드 -> menu_id를 찾을 수 없음
 	/*@RequestMapping("/Write")
@@ -47,7 +52,7 @@ public class MenuController {
 	}*/
 	
 	// 메뉴 목록 조회
-	// /Menu/List
+	// /Menus/List
 	@RequestMapping("/List") // /Menus/List
 	public String list(Model model) {
 		// 메뉴 목록을 select 조회
@@ -59,5 +64,20 @@ public class MenuController {
 		System.out.println("MenuController list() menuList: " + menuList);
 		
 		return "menus/list";
+	}
+	
+	// 메뉴 삭제
+	// /Menus/Delete
+	@RequestMapping("/Delete")
+	public String Delete(MenuVo menuVo) {
+		//특정 메뉴를 삭제
+		menuMapper.deleteMenu(menuVo);
+		
+		//menuList 다시 조회(리스트가 빈값이 되지 않도록)
+//		List<MenuVo> menuList = menuMapper.getMenuList();
+//		model.addAttribute("menuList", menuList);
+		
+		//이동할 파일, menuList 조회 중복 코드 제거
+		return "redirect:/Menus/List";
 	}
 }
