@@ -38,6 +38,7 @@
 </style>
 </head>
 <body>
+	<!-- list.jsp 수정 -->
 	<!-- jstl(java standard tag library)를 사용해 목록을 출력 - c:foreach -->
 	<main>
 		<h2>메뉴 목록</h2>
