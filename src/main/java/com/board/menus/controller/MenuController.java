@@ -48,7 +48,7 @@ public class MenuController {
 	
 	// 메뉴 목록 조회
 	// /Menu/List
-	@RequestMapping("/List") // /Menus/List
+	@RequestMapping("/List") // /Menus/Listㅊ
 	public String list(Model model) {
 		// 메뉴 목록을 select 조회
 		// ArrayList의 상위 클래스인 List 인터페이스 사용 우측이 무슨형이든 상관없이 하려고 List 사용
