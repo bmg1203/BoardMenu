@@ -21,4 +21,6 @@ public interface MenuMapper {
 	void insertMenuByName(MenuVo menuVo);
 
 	MenuVo getMenu(String menu_id);
+
+	void updateMenu(MenuVo menuVo);
 }

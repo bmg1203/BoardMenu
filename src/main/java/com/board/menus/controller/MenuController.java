@@ -92,10 +92,11 @@ public class MenuController {
 	@RequestMapping("/Update")
 	public String update(MenuVo menuVo) {
 		//수정
-		//menuMapper.updateMenu(menuVo);
+		menuMapper.updateMenu(menuVo);
 		
 		//수정후 조회
 		return "redirect:/Menus/List";
+		//return "";
 	}
 	
 	
