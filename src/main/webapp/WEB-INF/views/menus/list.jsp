@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+	//JSTL(JSP Standard Tag Library) c:forEach를 위한 설치
+	//%를 사용해서도 반복문 등을 적용 가능하지만 JSTL을 사용해 편리성을 높임
+	//c로 시작하는 문법은 url의 문법으로 해석해라 라는 뜻
+%>
     
 <!DOCTYPE html>
 <html>
@@ -59,13 +64,13 @@
 				</td>
 			</tr>
 			<!-- 추가 후 menuList를 부를 때 빈값이 넘어오는 오류로 insert도 모델을 사용하도록 수정 -->
-			<c:forEach var="menu" items="${menuList}"> <!-- menuList를 할 때 forEach는 무시지만 %는 오류이기 때문에 forEach 사용 -->
+			<c:forEach var="menuVo" items="${menuList}"> <!-- menuList를 할 때 forEach는 무시지만 %는 오류이기 때문에 forEach 사용 -->
 				<tr>
-					<td>${menu.menu_id}</td>
-					<td>${menu.menu_name}</td>
-					<td>${menu.menu_seq}</td>
-					<td><a href="/Menus/Delete?menu_id=${menu.menu_id}">삭제</a></td> <!-- href에 #은 페이지 새로고침 -->
-					<td><a href="/Menus/UpdateForm?menu_id=${menu.menu_id}">수정</a></td>
+					<td>${menuVo.menu_id}</td>
+					<td>${menuVo.menu_name}</td>
+					<td>${menuVo.menu_seq}</td>
+					<td><a href="/Menus/Delete?menu_id=${menuVo.menu_id}">삭제</a></td> <!-- href에 #은 페이지 새로고침 -->
+					<td><a href="/Menus/UpdateForm?menu_id=${menuVo.menu_id}">수정</a></td>
 				</tr>
 			</c:forEach>
 		</table>

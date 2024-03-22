@@ -73,10 +73,17 @@ public class MenuController {
 	// /Menus/UpdateForm?menu_id=${menu_id}
 	@RequestMapping("/UpdateForm")
 	public String updateForm(MenuVo menuVo, Model model) {
+		//넘어온 MenuVo 객체
+		System.out.println("menuVo: " + menuVo);
+		
+		String menu_id = menuVo.getMenu_id();
+		
 		//수정할 데이터 조회
-		//menuMapper.selectMenu(menuVo);
+		//조회한 MenuVo 객체
+		MenuVo menu = menuMapper.getMenu(menu_id);
 		
 		//조회한 내용을 모델에 담기
+		model.addAttribute("menu", menu);
 		
 		return "/menus/update";
 	}
